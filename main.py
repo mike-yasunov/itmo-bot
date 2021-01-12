@@ -53,10 +53,6 @@ def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
 
-def echo(update, context):
-    update.message.reply_text(update.message.text)
-
-
 def get_style(update, context):
     global option
     option = update.message.text
@@ -86,7 +82,8 @@ def get_photo(update, context):
         with open('res_photo.jpg', 'rb') as res_photo:
             context.bot.send_photo(chat_id=update.effective_chat.id, photo=res_photo)
 
-    update.message.reply_text('Вот результат. Спасибо за ожидание)')
+    update.message.reply_text('Вот результат. Спасибо за ожидание :) \n\
+    Чтобы запустить меня заново, просто нажми /start')
     os.remove('user_photo.jpg')
 
 
